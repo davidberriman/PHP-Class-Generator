@@ -1,6 +1,6 @@
 body{font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.9em;color:#555;}
 p{margin:10px 0;font-size:.8em;}
-form{max-width:300px;margin:50px auto;}
+form, .intro{max-width:300px;margin:50px auto;}
 input[type=text]{width:calc(100% - 18px);padding:5px;margin:0 0 20px 0;}
 input[type=submit]{width:100%;padding:5px;margin:0px;}
 fieldset{padding:10px;border-radius:5px;}
@@ -8,4 +8,5 @@ legend{font-weight:600;}
 .errorBox{width:calc(100%-20px);background:#d14848;color:white;padding:10px;margin:10px 0;text-align:center;}
 .successBox{width:calc(100%-20px);background:#a4db69;color:#1a2f05;padding:10px;margin:10px 0;text-align:center;}
 hr{height:1px;color:#ddd;background:#ddd;margin-bottom:20px;border:none;}
-label{margin-bottom:20px;}
+li{margin:20px 0;list-style: none;}
+ul{padding:0;margin:0;}

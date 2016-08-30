@@ -39,7 +39,7 @@ navigate to the 'include' directory then run the following replacing 'myClassNam
 	
 $ php createClass.php myClassName 
 
-The PHP file will be genereted in the top level folder
+The PHP file will be genereted at: include/classes/
 
 
 
@@ -50,4 +50,4 @@ Enter the table name into the form
 
 submit the form
 
-The PHP file will be genereted in the top level folder
+The PHP file will be genereted at: include/classes/

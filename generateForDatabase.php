@@ -13,18 +13,16 @@
 <form action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>' method='post' accept-charset='UTF-8'>
 <fieldset>
 <legend>PHP Class Generator</legend>
-<p>Creates a default template PHP file with a class that has CRUD methods for the database table.</p>
+<p>Creates a default template PHP file with a class that has CRUD methods for <strong>EACH</strong> of the tables in the database.</p>
+<a href="index.php">Home</a>
 
 <?php echo isset($message) ? "<div class='".$messageClass."'>".$message."</div>" : "" ?>
 
 <hr/>
-<label for="tableName">Table:</label>
-<input type='text' name='tableName' id='tableName' value='<?php echo isSet($_POST['table']) ? $_POST['tableName'] : "" ; ?>' placeholder="Table name"/>
 
-<label for="fileName">Filename:</label>
-<input type='text' name='fileName' id='fileName'  placeholder="Filename for class file (optional)" />
+<input type='hidden' name='updateAll' value="1"/>
 
-<input type='submit' name='Submit' value='Submit'/>
+<input type='submit' name='Submit' value='Generate'/>
 
 </fieldset>
 </form>
