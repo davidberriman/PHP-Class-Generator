@@ -1,8 +1,9 @@
 <?php
-if(file_exists("initialize.php")){require_once("initialize.php");};
 if(file_exists("include/initialize.php")){require_once("include/initialize.php");};
-require_once("include/createClassTemplate.php");
+require_once("include/class.tablecCassTemplate.php");
 
+
+// this is called when a single table is being processed
 if(isSet($_POST['tableName'])){
 
 	// set the div class as an error until it is set otherwise
@@ -25,26 +26,20 @@ if(isSet($_POST['tableName'])){
 	
 	$error = "";
 	
-	// this file runs off arguments so it can be used in the command line as well
-	// run the createClass.php file passing in the arguments 
-	// $classNameForTemplate = table name;
-	// $filenameForTemplate = (optional) file name
-	$error = createClass($classNameForTemplate, $filenameForTemplate);
-	
-	// see if there were any php errors likely to be
-	// caused when trying to write the file
-	if($error == "")
-	{
+	$tablecCassTemplate = new TablecCassTemplate();
+	if($tablecCassTemplate->createClass($_POST['tableName'], $filenameForTemplate)){
 		$messageClass = "successBox";
 		$message = 'Your class for '.$_POST['tableName'].' was created.<br>';
 	}else
 	{
 		$message = 'ERROR - There was an error creating your class.<br/><br/>
 			Please check the write permissions on the directory.<br/><br/>
-		    ERROR MESSAGE:<br/><br/>'.$error;
+		    ERROR MESSAGE:<br/><br/>'.$tablecCassTemplate->error;
 	}
 }
 
+
+// this is called when all the tables in the database are being processed
 if(isSet($_POST['updateAll'])){
 	
 	// set the div class as an error until it is set otherwise
@@ -82,19 +77,15 @@ if(isSet($_POST['updateAll'])){
 	}
 	
 	$errorList = "";
+	$tablecCassTemplate = new TablecCassTemplate();
 	
 	// create the class for each of the tables
 	foreach ($arrayTableNames as &$table) {
 		
 		// create the class for this table
-		$error = createClass($table, "");
-				
-		// check for error messages and concatinate errors
-		if(isSet($error) && trim($error)  != ""){
-			$errorList .= $error."<br/><br/>";
-			unset($error);
-		}
-		
+		if(!$tablecCassTemplate->createClass($table, "")){
+			$errorList .= $tablecCassTemplate->error."<br/><br/>";
+		}		
 	}
 	
 	// see if there were any php errors likely to be
@@ -111,5 +102,4 @@ if(isSet($_POST['updateAll'])){
 	}
 	
 }
-
 ?>

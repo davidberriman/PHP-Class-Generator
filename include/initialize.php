@@ -35,5 +35,5 @@ defined('ERROR_LOG_DIR')   ? null : define("ERROR_LOG_DIR", LIB_PATH.DS."logs/ph
 // load the database and Sanitize classes for each of the table classes to use
 if(!isSet($database)){require_once(LIB_PATH.DS."database.php");};
 if(!class_exists('Sanitize')){require_once(LIB_PATH.DS."sanitize.php");};
-
+if(!class_exists('ErrorLog')){require_once(LIB_PATH.DS."class.error_log.php");};
 ?>

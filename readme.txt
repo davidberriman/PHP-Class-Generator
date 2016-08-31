@@ -32,14 +32,23 @@ The update & deleteRecord methods assume the table has only one key field - mult
 
 
 
+
 ---- To operate via the command line: ---- 
 	
 	
-navigate to the 'include' directory then run the following replacing 'myClassName' with your class name and an optional filename. If not filename is provided it will default to class.myClassName.php
+run the following command replacing 'myClassName' with your database table name and an optional filename. If no filename is provided it will default to class.myClassName.php
 	
+without file name:
+
 $ php createClass.php myClassName 
 
+
+with file name:
+
+$ php createClass.php myClassName myFileName
+
 The PHP file will be genereted at: include/classes/
+
 
 
 

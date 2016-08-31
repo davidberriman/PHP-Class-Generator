@@ -1,4 +1,3 @@
-<?PHP require_once("controllers/generator_controller.php"); ?>
 <!DOCTYPE html>
 <html lang='en-gb'>
 <head>

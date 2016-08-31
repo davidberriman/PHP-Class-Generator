@@ -1,5 +1,5 @@
 <?php
-require_once("createClassTemplate.php");
+require_once("include/class.tablecCassTemplate.php");
 # ========================================================================#
 #
 #  Author:    David Berriman
@@ -23,6 +23,14 @@ require_once("createClassTemplate.php");
 		$filenameForTemplate = "";
 	}
 	
-	createClass($classNameForTemplate, $filenameForTemplate);
+	$tablecCassTemplate = new TablecCassTemplate();
+	if($tablecCassTemplate->createClass($classNameForTemplate, $filenameForTemplate)){
+		echo 'Your class for '.$classNameForTemplate.' was created.'.PHP_EOL;
+	}else
+	{
+		$message = 'ERROR - There was an error creating your class.'.PHP_EOL.'
+			Please check the write permissions on the directory.'.PHP_EOL.'
+		    ERROR MESSAGE: '.$tablecCassTemplate->error.PHP_EOL;
+	}
 
 ?>
