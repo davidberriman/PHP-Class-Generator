@@ -656,7 +656,7 @@ class TablecCassTemplate{
 			return true;
 		}
 		
-		$this->$error = "The table columns could not be found for: {$table}";
+		$this->error = "The table columns could not be found for: {$table}";
 	    return false;
 		
 	}
